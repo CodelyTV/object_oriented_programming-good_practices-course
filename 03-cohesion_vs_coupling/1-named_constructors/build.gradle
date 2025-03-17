@@ -1,7 +1,10 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 21
 targetCompatibility = 21
+
+mainClassName = 'tv.codely.java_basic_skeleton.Main'
 
 repositories {
     mavenCentral()
@@ -21,4 +24,11 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
+}
+
+task runMain(type: JavaExec) {
+    group = "application"
+    description = "Run the main class"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'tv.codely.java_basic_skeleton.Main'
 }
