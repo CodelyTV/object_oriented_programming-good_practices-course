@@ -8,3 +8,6 @@ class UserFullName:
 
     def formatted(self):
         return f"{self.name} {self.last_name}"
+        
+    def __str__(self):
+        return self.formatted()
