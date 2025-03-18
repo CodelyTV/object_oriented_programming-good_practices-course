@@ -1,26 +1,27 @@
 package tv.codely.java_basic_skeleton;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
-    public static void main(String[] args) {
-        UserId userId = new UserId(UUID.randomUUID().toString());
-        UserFullName fullName = new UserFullName(new UserName("Javier"), new UserLastName("Ferrer"));
-        User userWithConstructor = new User(userId, fullName, AccessLevel.admin, LocalDateTime.now());
+    public static Map<String, String> GET(String id) {
+        var finder = new UserFinder(new FakeUserRepository());
 
-        System.out.println("User created with constructor:");
-        System.out.println("ID: " + userWithConstructor.id());
-        System.out.println("Full name: " + userWithConstructor.fullName());
-        System.out.println("Access level: " + userWithConstructor.accessLevel());
-        System.out.println("Registration date: " + userWithConstructor.registeredAt());
+        try {
+            var user = finder.find(id);
 
-        User userWithNamedConstructor = User.register(UUID.randomUUID().toString(), "Rafa", "Gómez");
+            return Map.of(
+                "id", user.id().value(),
+                "fullName", user.fullName().value(),
+                "accessLevel", user.accessLevel().toString(),
+                "registeredAt", user.registeredAt().toString()
+            );
+        } catch (RuntimeException e) {
+            return new HashMap<>();
+        }
+    }
 
-        System.out.println("\nUser created with named constructor:");
-        System.out.println("ID: " + userWithNamedConstructor.id());
-        System.out.println("Full name: " + userWithNamedConstructor.fullName());
-        System.out.println("Access level: " + userWithNamedConstructor.accessLevel());
-        System.out.println("Registration date: " + userWithNamedConstructor.registeredAt());
+    public static void main(String id, String name, String lastName) {
+        new UserRegistrar(new FakeUserRepository()).register(id, name, lastName);
     }
 }
