@@ -21,7 +21,7 @@ public class Main {
         }
     }
 
-    public static void main(String id, String name, String lastName) {
+    public static void PUT(String id, String name, String lastName) {
         new UserRegistrar(new FakeUserRepository()).register(id, name, lastName);
     }
 }
