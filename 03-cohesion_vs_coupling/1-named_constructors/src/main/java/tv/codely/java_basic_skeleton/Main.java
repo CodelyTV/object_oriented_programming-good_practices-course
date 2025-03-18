@@ -5,7 +5,6 @@ import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
-
         UserId userId = new UserId(UUID.randomUUID().toString());
         UserFullName fullName = new UserFullName(new UserName("Javier"), new UserLastName("Ferrer"));
         User userWithConstructor = new User(userId, fullName, AccessLevel.admin, LocalDateTime.now());
