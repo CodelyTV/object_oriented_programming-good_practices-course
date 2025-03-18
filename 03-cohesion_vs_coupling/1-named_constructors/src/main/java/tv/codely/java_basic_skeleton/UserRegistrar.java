@@ -1,5 +1,7 @@
 package tv.codely.java_basic_skeleton;
 
+import java.time.LocalDateTime;
+
 public final class UserRegistrar {
     private final UserRepository repository;
 
@@ -8,16 +10,13 @@ public final class UserRegistrar {
     }
 
     public void register(String id, String name, String lastName) {
-        User user = User.register(id, name, lastName);
-        
-        ensureUserDoesNotExist(id);
-        
+        var user = new User(
+            new UserId(id),
+            new UserFullName(new UserName(name), new UserLastName(lastName)),
+            AccessLevel.normalUser,
+            LocalDateTime.now()
+        );
+
         repository.save(user);
     }
-    
-    private void ensureUserDoesNotExist(String id) {
-        if (repository.search(id).isPresent()) {
-            throw new RuntimeException("User already exists");
-        }
-    }
-} 
+}

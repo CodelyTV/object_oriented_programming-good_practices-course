@@ -15,20 +15,6 @@ public class User {
         this.registeredAt = registeredAt;
     }
 
-    public static User register(String id, String name, String lastName) {
-        UserId userId = new UserId(id);
-        UserName userName = new UserName(name);
-        UserLastName userLastName = new UserLastName(lastName);
-        UserFullName fullName = new UserFullName(userName, userLastName);
-
-        return new User(
-            userId,
-            fullName,
-            AccessLevel.normalUser,
-            LocalDateTime.now()
-        );
-    }
-
     public UserId id() {
         return id;
     }
