@@ -9,7 +9,7 @@
 </p>
 
 <h1 align="center">
-    {COURSE_EMOJI} {COURSE_NAME_IN_ENGLISH}
+    🪂 Object-Oriented Programming Best Practices
 </h1>
 
 <p align="center">
@@ -18,10 +18,11 @@
 </p>
 
 <p align="center">
-    {COURSE_SUMMARY_IN_ENGLISH}
+    Apply good OOP practices in your code to make it more maintainable.
 </p>
 
 <p align="center">
-  <a href="https://github.com/CodelyTV/{REPOSITORY_NAME}/stargazers">Stars are welcome 😊</a><br><br>
-  Course (Spanish): <a href="{COURSE_URL}">{COURSE_NAME_IN_SPANISH}</a>
+  <a href="https://github.com/CodelyTV/object_oriented_programming-good_practices-course/stargazers">Stars are welcome 😊</a><br><br>
+  Course (Spanish): <a href="https://pro.codely.com/library/buenas-practicas-de-programacion-orientada-a-objetos-234951">Buenas prácticas de Programación Orientada a Objetos
+</a>
 </p>
